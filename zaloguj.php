@@ -11,9 +11,11 @@
 		$login = $_POST['login'];
 		$password = $_POST['password'];
 
-		$sql = "SELECT * FROM uzytkownicy WHERE user = '$login' AND pass = '$password'";
+		$login = htmlentities($login, ENT_QUOTES, "UTF-8");
+		$password = htmlentities($password, ENT_QUOTES, "UTF-8");
 
-		if ($rezultat = @$polaczenie->query($sql))
+		if ($rezultat = @$polaczenie->query(sprintf("SELECT * FROM uzytkownicy WHERE user = '%s' AND pass = '%s'",mysqli_real_escape_string($polaczenie,$login),
+			mysqli_real_escape_string($polaczenie,$password))))
 		{
 			$ilu_us = $rezultat->num_rows;
 			if ($ilu_us>0){
