@@ -1,5 +1,11 @@
 <?php
 	session_start();
+
+	if(isset($_SESSION['zalogowany']) !== true){
+		header('Location:index.php');
+	}
+
+	exit();
 ?>
 
 
@@ -21,6 +27,7 @@ echo "<p>Zostało Ci dni Premium: ".$_SESSION['dnipremium']."</p>";
 unset($_SESSION['error']);
 ?>
 
+<a href="logout.php">Wyloguj się</a>
 
 </body>
 </html>
