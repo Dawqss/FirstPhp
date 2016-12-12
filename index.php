@@ -18,6 +18,7 @@
 <body>
 	<div>
 		<h1>Tu będziesz się logował</h1>
+		
 		<form action="zaloguj.php" method="post">
 			<p>Login</p>
 			<input type="text" name="login">
@@ -30,7 +31,7 @@
 				echo $_SESSION['error'];
 			}
 		?>
-
+		<p><a href="rejestracja.php">Rejestracja - załóż konto</a></p>
 	</div>
 </body>
 </html>
